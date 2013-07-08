@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -9,12 +8,14 @@ var mongoose = require('mongoose/');
 // //backbonetutorials.com/nodejs-restify-mongodb-mongoose/#sthash.9CrXag5k.dpuf
 
 require('./models/Tapes');
+require('./models/People');
 
 var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
-  , http = require('http')
-  , path = require('path');
+    , routes = require('./routes')
+    , user = require('./routes/user')
+    , tapes = require('./routes/tapes')
+    , http = require('http')
+    , path = require('path');
 
 mongoose.connect('mongodb://localhost/m101');
 var db = mongoose.connection;
@@ -37,14 +38,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
+    app.use(express.errorHandler());
 }
 
 app.get('/', routes.index);
 app.get('/users', user.list);
-
-var tapes = require('./routes/tapes');
+app.get('/tapes', tapes.list)
 
 http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+    console.log('Express server listening on port ' + app.get('port'));
 });

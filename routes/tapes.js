@@ -9,7 +9,7 @@
 var mongoose = require('mongoose')
     , Tapes = mongoose.model('Tapes');
 
-exports.tapes = function(req, res){
+exports.list = function(req, res){
     Tapes.find( {type: { $ne : 'Weekly Full'}}).exec(function(err, recrd){
         console.log(recrd)
         console.error('recrd', JSON.stringify(recrd))
