@@ -16,7 +16,7 @@ var express = require('express')
     , http = require('http')
     , path = require('path');
 
-mongoose.connect('mongodb://localhost/m101');
+mongoose.connect('mongodb://localhost/tapes');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 

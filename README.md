@@ -1,28 +1,20 @@
-Tape tracking system using node.js, mongodb, bootstrap, express
+Tape tracking system using node.js, mongodb, bootstrap, express and hopefully backbone
 
-Originally created by http://outcoldman.ru - https://github.com/outcoldman - Denis Gladkikh
-Homeworks for course M101P: MongoDB for Developers implemented with Node.js
-Installations
+Created by Norman Coder
 
-Current repository contains settings for WebStorm IDE. After you will clone current repository you need to install required npm_modules (see file sources/package.json)
-
-Modified by Norman Coder
-
-Basically I am trying to understatnd how express works and missing something fundimental.
-
-Data needed for project
-
-Currently stored in blog/dump
+Currently stored in tapes/dump
 
 Data backed up using
- mongodump -h localhost -d m101
+ mongodump -h localhost -d tapes
 
  Data restored using
- mongorestore -d m101 -c tapes
+ mongorestore -d tapes dump/tapes
 
- To see what my question is simply start the app using "node app.js from within the blog directory
- Open a browser to localhost:3001
- Notice what works and doesn't.
- Explain what I am doing wrong or change it so it all works (i.e. localhost:3001/XXX resolves)
+I have two basic questions/problems
 
- As a side my real project is to create a CRUD for the tapes collection
+1. localhost:8082/tapes does not display sorting, pagination, and other features I supposedly added based on https://datatables.net. What
+	 need are the basic features displayed on the first page of https://datatables.net I don't care if it is bootstrap, can only seem to get
+	 part of that working, or data tables.
+
+2. This is a simple one. For some, hopefully simple reason, I can't get http://localhost:3002/users to display the username from the
+   people collection. My plan is to add user authentication, but that will come later unless you have time to help me with that too.
