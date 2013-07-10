@@ -6,13 +6,14 @@
  * To change this template use File | Settings | File Templates.
  */
 
-var mongoose = require('mongoose')
-    , Tapes = mongoose.model('Tapes');
+var mongoose, tapes;
+mongoose = require('mongoose');
+tapes = mongoose.model('Tapes');
 
 exports.list = function(req, res){
-    Tapes.find( {type: { $ne : 'Weekly Full'}}).exec(function(err, recrd){
+    tapes.find( {type: 'Weekly Full'}).exec(function(err, recrd){
         console.log(recrd)
         console.error('recrd', JSON.stringify(recrd))
-        res.render('tapes/tapes', { result: recrd });
+        res.render('tapes/list', { result: recrd });
     });
 };

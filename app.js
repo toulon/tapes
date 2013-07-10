@@ -11,7 +11,6 @@ require('./models/Tapes');
 require('./models/People');
 
 var express = require('express')
-    , routes = require('./routes')
     , user = require('./routes/user')
     , tapes = require('./routes/tapes')
     , http = require('http')
@@ -41,7 +40,7 @@ if ('development' == app.get('env')) {
     app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
+app.get('/', user.list);
 app.get('/users', user.list);
 app.get('/tapes', tapes.list)
 
